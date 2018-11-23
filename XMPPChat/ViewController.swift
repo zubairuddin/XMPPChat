@@ -27,6 +27,9 @@ class ViewController: UIViewController {
         stream.addDelegate(self, delegateQueue: DispatchQueue.main)
         
         stream.myJID = XMPPJID(string: "user1@localhost")
+        stream.hostName = "localhost"
+        stream.hostPort = 5222
+        
         
         xmppRoster.activate(stream)
         
@@ -40,7 +43,7 @@ class ViewController: UIViewController {
 
     }
     @IBAction func sendMessage(_ sender: UIButton) {
-        let message = "Yo!"
+        let message = "Test Message!"
         let senderJID = XMPPJID(string: "user2@localhost")
         let msg = XMPPMessage(type: "chat", to: senderJID)
         
